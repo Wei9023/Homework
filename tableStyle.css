@@ -1,0 +1,170 @@
+header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f3eafd;
+}
+
+table {
+  margin: 0 auto 20px auto;
+  table-layout: fixed;
+  width: 60%;
+  border-collapse: collapse;
+  border: 3px solid rgb(105, 105, 105);
+  text-align: center;
+  vertical-align: middle;
+}
+
+thead {
+  font-size: large;
+  font-weight: bold;
+}
+
+thead th:nth-child(1) {
+  width: 20%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 20%;
+}
+
+thead th:nth-child(4) {
+  width: 40%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(122, 114, 142, 0.3);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(165, 146, 216, 0.3);
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid rgb(105, 105, 105);
+}
+
+tbody th {
+  font-weight: lighter;
+}
+
+.name {
+  font-weight: bold;
+}
+
+input {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  font-size: 16px;
+  background-image: url("searchicon.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-out;
+  display: block;
+  margin: auto;
+}
+
+input:focus {
+  width: 60%;
+  border: 3px solid rgb(165, 146, 216);
+}
+
+.list {
+  font-family: sans-serif;
+  font-style: oblique;
+  width: 30%;
+}
+
+li {
+  list-style-position: outside;
+  background: rgb(165, 146, 216);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  width: 60%;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+.container ul,
+ol {
+  margin: 10px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+ul li {
+  list-style-type: circle;
+}
+
+ol > li {
+  list-style-type: lower-roman;
+}
+
+select {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  display: block;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select:focus {
+  background-image: linear-gradient(
+      45deg,
+      rgb(165, 146, 216) 50%,
+      transparent 50%
+    ),
+    linear-gradient(135deg, transparent 50%, rgb(165, 146, 216) 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: rgb(165, 146, 216);
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
