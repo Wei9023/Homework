@@ -1,3 +1,70 @@
 body {
-  background-color: aqua;
+  background: url(./background-image.jpeg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1 {
+  padding: auto 2em;
+  color: white;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 20em;
+  margin: 10em 2em;
+}
+
+button {
+  display: inline-block;
+  padding: 1em 3em;
+  background-color: transparent;
+  border-radius: 0.5em;
+  margin: 0 1em 1em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+button:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+button:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
+}
+
+.bouncy {
+  animation: bouncy 5s infinite linear;
+  position: relative;
+}
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
 }

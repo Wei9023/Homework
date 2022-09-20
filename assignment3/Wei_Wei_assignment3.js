@@ -50,7 +50,7 @@ const generateTable = () => {
   }
   //console.log(column);
   tHead.appendChild(column);
-  console.log(tHead);
+  //console.log(tHead);
 
   //creating all cells
   for (let i = 0; i < tableInfo.tableContent.length; i++) {
@@ -66,10 +66,9 @@ const generateTable = () => {
   }
   tb.appendChild(tHead);
   tb.appendChild(tBody);
-  console.log(tb);
+  //console.log(tb);
   bd.appendChild(tb);
 };
-
 const tableBtn = document.querySelector("#btn");
 tableBtn.addEventListener("click", generateTable);
 

@@ -12,20 +12,15 @@ const itemsObject = [
 ];
 
 //double the quantity aned price
-const ans1 = itemsObject.map((a) => {
-  return { ...a };
-});
-
-ans1.forEach((item) => {
-  item.quantity *= 2;
-  item.price *= 2;
+const ans1 = itemsObject.map(({ quantity, price }) => {
+  return { quantity: quantity * 2, price: price * 2 };
 });
 console.log(ans1);
 
 //item quantiy > 2 and price > 300
-const ans2 = itemsObject.filter(
-  (item) => item.price > 300 && item.quantity > 2
-);
+const ans2 = itemsObject.filter(({ quantity, price }) => {
+  return price > 300 && quantity > 2;
+});
 console.log(ans2);
 
 //calculate the total value of the items
@@ -89,10 +84,9 @@ const mergeTwoArr = (arr1, arr2) => {
       ? map.get(arr2[j].uuid).push(arr2[j].role)
       : map.set(arr2[j].uuid, [null, arr2[j].role]);
   }
-  //console.log(map);
   const mergedArr = [];
   let keys = Array.from(map.keys());
-  //console.log(keys);
+
   for (let i = 0; i < keys.length; i++) {
     mergedArr[i] = {
       uuid: keys[i],
@@ -101,8 +95,7 @@ const mergeTwoArr = (arr1, arr2) => {
     };
   }
   mergedArr.sort((a, b) => a.uuid - b.uuid);
-  //console.log(mergedArr);
   return mergedArr;
 };
 
-mergeTwoArr(first, second);
+console.log(mergeTwoArr(first, second));
