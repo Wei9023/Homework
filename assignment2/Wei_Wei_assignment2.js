@@ -98,23 +98,43 @@ const expectedReturnArray = [
 //   return mergedArr;
 // };
 
-const mergeTwoArr = (arr1, arr2) => {
-  let map = {};
-  let mergedArr = [...arr1, ...arr2];
+// const mergeTwoArr = (arr1, arr2) => {
+//   let map = {};
+//   let mergedArr = [...arr1, ...arr2];
 
-  console.log(mergedArr);
-  mergedArr.forEach((ele) => {
-    map[ele.uuid] = {
-      ...{ uuid: null, name: null, role: null },
-      ...map[ele.uuid],
-      ...ele,
-    };
+//   console.log(mergedArr);
+//   mergedArr.forEach((ele) => {
+//     map[ele.uuid] = {
+//       ...{ uuid: null, name: null, role: null },
+//       ...map[ele.uuid],
+//       ...ele,
+//     };
+//   });
+//   console.log(mergedArr, map);
+//   mergedArr = Object.values(map).sort((a, b) => {
+//     a.uuid - b.uuid;
+//   });
+//   return mergedArr;
+// };
+const mergeTwoArr = (first, second) => {
+  const map = {};
+  [...first, ...second].forEach(({ uuid, role, name }) => {
+    if (!map[uuid]) {
+      map[uuid] = {
+        uuid,
+        ...{ role: role ? role : null },
+        ...{ name: name ? name : null },
+      };
+    } else {
+      map[uuid] = {
+        ...map[uuid],
+        //conditional add properties to object
+        ...(role && { role: role ? role : null }),
+        ...(name && { name: name ? name : null }),
+      };
+    }
   });
-  console.log(mergedArr, map);
-  mergedArr = Object.values(map).sort((a, b) => {
-    a.uuid - b.uuid;
-  });
-  return mergedArr;
+  return Object.values(map).sort((left, right) => left - right);
 };
 
 console.log(mergeTwoArr(first, second));
