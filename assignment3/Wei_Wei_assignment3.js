@@ -33,9 +33,11 @@ const tableInfo = {
   ],
 };
 
-const bd = document.querySelector("body");
+const showPlace = document.getElementById("show");
+console.log(showPlace);
 
 const generateTable = () => {
+  showPlace.innerHTML = "";
   const tb = document.createElement("table");
   const tHead = document.createElement("thead");
   const tBody = document.createElement("tbody");
@@ -67,7 +69,7 @@ const generateTable = () => {
   tb.appendChild(tHead);
   tb.appendChild(tBody);
   //console.log(tb);
-  bd.appendChild(tb);
+  showPlace.appendChild(tb);
 };
 const tableBtn = document.querySelector("#btn");
 tableBtn.addEventListener("click", generateTable);
@@ -81,13 +83,14 @@ const list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
 
 //generate ordered list
 const generateOrderedList = () => {
+  showPlace.innerHTML = "";
   const orderedList = document.createElement("ol");
   for (let i = 0; i < list.length; i++) {
     let listItem = document.createElement("li");
     listItem.textContent = list[i];
     orderedList.appendChild(listItem);
   }
-  bd.appendChild(orderedList);
+  showPlace.appendChild(orderedList);
 };
 
 const olBtn = document.querySelector("#olbtn");
@@ -95,13 +98,14 @@ olBtn.addEventListener("click", generateOrderedList);
 
 //generate unordered list
 const generateUnorderedList = () => {
+  showPlace.innerHTML = "";
   const unorderedList = document.createElement("ul");
   for (let i = 0; i < list.length; i++) {
     let listItem = document.createElement("li");
     listItem.textContent = list[i];
     unorderedList.appendChild(listItem);
   }
-  bd.appendChild(unorderedList);
+  showPlace.appendChild(unorderedList);
 };
 
 const ulBtn = document.querySelector("#ulbtn");
@@ -123,6 +127,7 @@ const dropDownList = [
 ];
 
 const generateDropDownList = () => {
+  showPlace.innerHTML = "";
   const dropDown = document.createElement("select");
   for (let i = 0; i < dropDownList.length; i++) {
     let options = document.createElement("option");
@@ -131,7 +136,7 @@ const generateDropDownList = () => {
     att.textContent = dropDownList[i].value;
     dropDown.appendChild(options);
   }
-  bd.appendChild(dropDown);
+  showPlace.appendChild(dropDown);
 };
 
 const dropDownBtn = document.querySelector("#dropdownbtn");
