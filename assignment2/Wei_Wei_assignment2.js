@@ -74,27 +74,46 @@ const expectedReturnArray = [
   { uuid: 6, role: "pm", name: null },
 ];
 
-const mergeTwoArr = (arr1, arr2) => {
-  const map = new Map();
-  for (let i = 0; i < arr1.length; i++) {
-    map.set(arr1[i].uuid, [arr1[i].name]);
-  }
-  for (let j = 0; j < arr2.length; j++) {
-    map.has(arr2[j].uuid)
-      ? map.get(arr2[j].uuid).push(arr2[j].role)
-      : map.set(arr2[j].uuid, [null, arr2[j].role]);
-  }
-  const mergedArr = [];
-  let keys = Array.from(map.keys());
+// const mergeTwoArr = (arr1, arr2) => {
+//   const map = new Map();
+//   for (let i = 0; i < arr1.length; i++) {
+//     map.set(arr1[i].uuid, [arr1[i].name]);
+//   }
+//   for (let j = 0; j < arr2.length; j++) {
+//     map.has(arr2[j].uuid)
+//       ? map.get(arr2[j].uuid).push(arr2[j].role)
+//       : map.set(arr2[j].uuid, [null, arr2[j].role]);
+//   }
+//   const mergedArr = [];
+//   let keys = Array.from(map.keys());
 
-  for (let i = 0; i < keys.length; i++) {
-    mergedArr[i] = {
-      uuid: keys[i],
-      name: map.get(keys[i])[0],
-      role: map.get(keys[i])[1],
+//   for (let i = 0; i < keys.length; i++) {
+//     mergedArr[i] = {
+//       uuid: keys[i],
+//       name: map.get(keys[i])[0],
+//       role: map.get(keys[i])[1],
+//     };
+//   }
+//   mergedArr.sort((a, b) => a.uuid - b.uuid);
+//   return mergedArr;
+// };
+
+const mergeTwoArr = (arr1, arr2) => {
+  let map = {};
+  let mergedArr = [...arr1, ...arr2];
+
+  console.log(mergedArr);
+  mergedArr.forEach((ele) => {
+    map[ele.uuid] = {
+      ...{ uuid: null, name: null, role: null },
+      ...map[ele.uuid],
+      ...ele,
     };
-  }
-  mergedArr.sort((a, b) => a.uuid - b.uuid);
+  });
+  console.log(mergedArr, map);
+  mergedArr = Object.values(map).sort((a, b) => {
+    a.uuid - b.uuid;
+  });
   return mergedArr;
 };
 
