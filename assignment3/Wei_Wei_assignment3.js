@@ -47,12 +47,9 @@ const generateTable = () => {
   for (let i = 0; i < tableInfo.tableHeader.length; i++) {
     let item = document.createElement("th");
     item.textContent = tableInfo.tableHeader[i];
-    //console.log(item);
     column.appendChild(item);
   }
-  //console.log(column);
   tHead.appendChild(column);
-  //console.log(tHead);
 
   //creating all cells
   for (let i = 0; i < tableInfo.tableContent.length; i++) {
@@ -60,7 +57,6 @@ const generateTable = () => {
     for (let j = 0; j < tableInfo.tableHeader.length; j++) {
       const cell = document.createElement("td");
       cell.textContent = Object.values(tableInfo.tableContent[i])[j];
-      //console.log(cell);
       row.appendChild(cell);
     }
     console.log(row);
@@ -68,7 +64,6 @@ const generateTable = () => {
   }
   tb.appendChild(tHead);
   tb.appendChild(tBody);
-  //console.log(tb);
   showPlace.appendChild(tb);
 };
 const tableBtn = document.querySelector("#btn");
